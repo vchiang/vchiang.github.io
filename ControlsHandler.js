@@ -6,7 +6,7 @@ var ControlsHandler = function() {
 	var audioParams = {
 		useMic: true,
 		useSample:false,
-		volSens:1.7,
+		volSens:4,
 		beatHoldTime:40,
 		beatDecayRate:0.97,
 		//
