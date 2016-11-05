@@ -2,34 +2,56 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Clown Balloon</title>
+	<title>Yeah Right</title>
     <style>
         body {
             margin: 0;
             overflow: hidden;
         }
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            background-color: #000;
+            opacity: 0.8;
+            width: 100%;
+            height: 100%;
+            transition: all 0.25s ease;
+        }
+        .cover-closed {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .instructions {
+            color: #fff;
+        }
         #video {
-            width: 100%; 
-/* uncomment when disabling controls to cover entire screen		 */
+            width: 100%;
         }
     </style>
 </head>
 <body>
-	<video id="video" autoplay muted>
-		<source src="Clown_720p_H264-compressed.mp4" type="video/mp4">
+
+    <div class="cover">
+        <div class="instructions"><i>Yeah Right</i> reacts to sarcastic sounds, words, and exclamations. While this project loads, please make sure your computer's microphone and speakers are on.</div>
+    </div>
+
+	<video id="video" controls="controls" autoplay muted>
+		<source src="Clown_720p_1105.mp4" type="video/mp4">
 	</video>
 
-<!--     <div id="controls"></div> -->
+    <!-- <div id="controls"></div> -->
 </body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/libs/stats.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- 	// <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/libs/stats.min.js"></script> -->
     <!-- Audio-related scripts -->
-    <script src="minivents.min.js"></script>
-    <script src='dat.gui.min.js'></script>
-    <script src="atutil.js"></script>
-    <script src="Main.js"></script>
-    <script src="AudioHandler.js"></script>
-    <script src="ControlsHandler.js"></script>
+    <script src="lib/minivents.min.js"></script>
+<!--     // <script src='lib/dat.gui.min.js'></script>
+    // <script src="lib/atutil.js"></script> -->
+    <script src="js/Main.js"></script>
+    <script src="js/AudioHandler.js"></script>
+    <script src="js/ControlsHandler.js"></script>
     <!-- Audio and Video Handling -->
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </html>
