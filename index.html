@@ -3,38 +3,70 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Yeah Right</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
         body {
             margin: 0;
             overflow: hidden;
+            font-family: 'Robot', sans-serif;
         }
         .cover {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
             position: absolute;
             top: 0;
             left: 0;
             z-index: 999;
             background-color: #000;
-            opacity: 0.8;
+            opacity: 1;
             width: 100%;
             height: 100%;
-            transition: all 0.25s ease;
+            transition: all 0.5s ease;
         }
         .cover-closed {
             opacity: 0;
             visibility: hidden;
         }
-        .instructions {
+        .intro {
+            position: relative;
             color: #fff;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-weight: 300;
+        }
+        #title {
+            font-size: 32px;
+            font-style: italic;
+            font-weight: 500;
+        }
+        .about {
+            font-size: 20px;
+        }
+        .instructions {
+            font-size: 16px;
         }
         #video {
-            width: 100%;
+            /*width: 100%;*/
+            height: 100vh;
+            min-height: 100%;
         }
     </style>
 </head>
 <body>
 
     <div class="cover">
-        <div class="instructions"><i>Yeah Right</i> reacts to sarcastic sounds, words, and exclamations. While this project loads, please make sure your computer's microphone and speakers are on.</div>
+        <div class="intro">
+            <div class="about"><span id="title">Yeah Right </span> reacts to sarcastic sounds, words, and exclamations.</div>
+            <br>
+            <br>
+            <br>
+            <div class="instructions">Please make sure your computer's microphone and speakers are on.</div>
+            <br>
+            <div class="instructions">Click anywhere to continue.</div>
+        </div>
     </div>
 
 	<video id="video" controls="controls" autoplay muted>

@@ -1,24 +1,10 @@
 var video = document.getElementById('video');
+var cover = $('.cover');
 var intervalRewind;
-// console.log(video);
-// console.log(AudioHandler.getLevel());
 
-// video.addEventListener('isLoaded', function() {
-//     while (video.readyState >= 4) {
-//         console.log("still loading");
-//     }
-// });
-
-function isLoading() {
-    while (video.readyState < 4) {
-        // console.log("still loading");
-    }
-}
-// isLoading();
-
+// updateSound() begins when video is loaded, not whether or not cover is closed
 function updateSound() {
     maxCheck();
-    // console.log(video.readyState);
     var soundLevel = AudioHandler.getLevel();
     if (soundLevel > 0.1) {
         inflate(soundLevel);
@@ -53,7 +39,6 @@ function maxCheck() {
 }
 
 // Close the instructions when clicking anywhere
-var cover = $('.cover');
 cover.on('click', function() {
     cover.addClass('cover-closed');
 });
