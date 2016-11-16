@@ -196,15 +196,14 @@ var AudioHandler = function() {
 		stopSound();
 
 		// x-browser (look into getting mic user input)
-		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+		// navigator.mediaDevices.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+		navigator.mediaDevices.getUserMedia = navigator.mediaDevices.getUserMedia;
 
-		if (navigator.getUserMedia) {
+		if (navigator.mediaDevices.getUserMedia) {
 
-			navigator.getUserMedia(
+			navigator.mediaDevices.getUserMedia({audio: true})
 
-				{audio: true},
-
-				function(stream) {
+				.then(function(stream) {
 
 					//re-init here or get an echo on the mic
 					source = audioContext.createBufferSource();
@@ -215,13 +214,12 @@ var AudioHandler = function() {
 					microphone = audioContext.createMediaStreamSource(stream);
 					microphone.connect(analyser);
 					isPlayingAudio = true;
-				},
+				})
 
 				// errorCallback
-				function(err) {
+				.catch(function(err) {
 					alert("The following error occurred: " + err);
-				}
-			);
+				});
 		} else {
 			alert("Could not getUserMedia");
 		}
